@@ -13,6 +13,5 @@ using http service discovery.
     "username": "user",
     "password": "password",
     "insecure_https": true,
-    "blackbox_url": "http://blackbox",
     "listen_port": 8080
 }

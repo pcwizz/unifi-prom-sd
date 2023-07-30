@@ -12,7 +12,6 @@ import (
 
 type config struct {
 	UnifiURL      string `json:"unifi_url"`
-	BlackboxURL   string `json:"blackbox_url"`
 	Site          string
 	Username      string
 	Password      string
@@ -62,7 +61,7 @@ func main() {
 		promSd := make([]promSDEntry, len(devices))
 		for i, device := range devices {
 			promSd[i] = promSDEntry{
-				Targets: []string{fmt.Sprintf("%s/probe?module=icmp&target=%s", config.BlackboxURL, device.Ip)},
+				Targets: []string{device.Ip},
 				Labels: map[string]string{
 					"ip":    device.Ip,
 					"name":  device.Name,
